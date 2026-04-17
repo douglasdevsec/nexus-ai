@@ -137,11 +137,11 @@
 
 > **Objetivo:** Conectar Ollama (o API en la nube) al flujo de datos. Los resultados pasan por el LLM para análisis automatizado, clasificación CVSS y generación de reportes.
 
-- [ ] **4.1 Conector Ollama / LLM**
-  - [ ] `backend/agents/llm_client.py` — Cliente unificado para Ollama y APIs en la nube
-  - [ ] Detección automática de modelos locales disponibles
-  - [ ] Sistema de prompts con templates parametrizables
-  - [ ] Manejo de streaming de respuestas del LLM
+- [x] **4.1 Conector Ollama / LLM**
+  - [x] `backend/agents/llm_client.py` — Cliente unificado para Ollama y APIs en la nube
+  - [x] Detección automática de modelos locales disponibles
+  - [x] Sistema de prompts con templates parametrizables
+  - [x] Manejo de streaming de respuestas del LLM
 
 - [ ] **4.2 Agente Analista**
   - [ ] `backend/agents/analyst.py`
