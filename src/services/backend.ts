@@ -63,6 +63,16 @@ export class BackendService {
     }
   }
 
+  static async scanAgent(prompt: string, signal?: AbortSignal) {
+    const response = await fetch(`${API_URL}/scan/agent`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ prompt }),
+      signal
+    });
+    return await response.json();
+  }
+
   static async updateAiConfig(engine: string, apiKey: string) {
     const response = await fetch(`${API_URL}/config/ai`, {
       method: 'POST',

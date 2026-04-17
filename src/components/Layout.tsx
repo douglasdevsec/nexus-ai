@@ -48,13 +48,30 @@ export const Layout: React.FC = () => {
 
         {/* Derecha: ChatBar */}
         <div style={{ width: '320px', flexShrink: 0 }}>
-          <ChatBar messages={messages} onSendMessage={(text) => {
-            setMessages(prev => [...prev, { id: Date.now().toString(), sender: 'user', text }]);
-            // Mock IA response
-            setTimeout(() => {
-              setMessages(prev => [...prev, { id: Date.now().toString(), sender: 'agent', text: 'Procesando tu solicitud...' }]);
-              setLogs(prev => [...prev, { id: Date.now().toString(), timestamp: new Date().toLocaleTimeString(), type: 'command', message: 'Analizando intención...' }]);
-            }, 600);
+          <ChatBar messages={messages} onSendMessage={async (text) => {
+            const userMsgId = Date.now().toString();
+            setMessages(prev => [...prev, { id: userMsgId, sender: 'user', text }]);
+            
+            const agentMsgId = (Date.now() + 1).toString();
+            setMessages(prev => [...prev, { id: agentMsgId, sender: 'agent', text: 'Procesando la intención en el modelo de IA...' }]);
+            setLogs(prev => [...prev, { id: Date.now().toString(), timestamp: new Date().toLocaleTimeString(), type: 'command', message: `Solicitando análisis a la IA local/remota...` }]);
+
+            try {
+              const res = await BackendService.scanAgent(text);
+              if (res && res.status === "error") {
+                setMessages(prev => prev.map(m => m.id === agentMsgId ? { ...m, text: res.message } : m));
+              } else if (res && res.status === "success") {
+                setMessages(prev => prev.map(m => m.id === agentMsgId ? { 
+                  ...m, 
+                  text: `✅ **Completado.** Se identificó tu solicitud como \`${res.intent}\`.\n\nHe realizado el análisis táctico automatizado y construido las correcciones necesarias.\n*(Tus reportes en PDF y HTML estarán listos en la carpeta de backend)*` 
+                } : m));
+                setLogs(prev => [...prev, { id: Date.now().toString(), timestamp: new Date().toLocaleTimeString(), type: 'result', message: `Pipeline completo para la intención: ${res.intent}` }]);
+              } else {
+                setMessages(prev => prev.map(m => m.id === agentMsgId ? { ...m, text: '⚠️ Ocurrió una respuesta de formato no esperado.' } : m));
+              }
+            } catch (err) {
+              setMessages(prev => prev.map(m => m.id === agentMsgId ? { ...m, text: '🚨 El servidor no respondió a tiempo. Verifica que el Backend de IA esté corriendo (' + (err as Error).message + ')' } : m));
+            }
           }} />
         </div>
 
