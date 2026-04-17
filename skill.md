@@ -12,3 +12,7 @@ Este documento mantiene el registro de los módulos, conectores y lógicas que c
 
 ## Registro Histórico de Capacidades
 *(Nuevas funciones añadidas a continuación)*
+
+- **Scan Windows Services:** Capacidad de enumerar servicios en ejecución locales e identificar "Unquoted service paths" y directorios peligrosos de ejecución (AppData/Temp).
+- **Windows Security Event Parser:** Capacidad de consumir registros de seguridad local para detectar Eventos Críticos (Logon failures - 4625, RDP Interactive - Type 10) de forma algorítmica.
+- **NLP Orchestrator:** Habilidad de digerir lenguaje natural crudo para predecir y auto-ejecutar el tipo de escaneo idóneo sin interactuar directamente con la UI técnica.

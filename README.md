@@ -5,10 +5,10 @@ Construida bajo **Arquitectura Limpia** con capacidades modulares e impulsada po
 
 ## Tecnologías Principales
 - **Frontend**: React + TypeScript (Tauri)
-- **Backend**: Python (FastAPI, integraciones de bajo nivel)
-- **Inteligencia Artificial**: Agentes locales basados en Ollama (LLM)
+- **Backend**: Python (FastAPI, integraciones de bajo nivel y OS)
+- **Inteligencia Artificial**: Agentes locales basados en Ollama (Analistas, Orquestadores PLN)
 - **Almacenamiento**: SQLite
-- **Herramientas OS**: Nmap, Wappalyzer, VirusTotal Hashes
+- **Herramientas**: Nmap, Hashes (VirusTotal), Win32 API, PowerShell / EventLog Parsers
 
 ## Instalación y Ejecución Local
 

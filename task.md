@@ -198,3 +198,37 @@
 - [ ] Auto-actualización de base de hashes maliciosos
 - [ ] Sistema de notificaciones y alertas
 - [ ] Exportación de logs de auditoría forense
+
+---
+
+## Fase 6 — Escáneres Nativos Windows e IA Conversacional
+
+> **Objetivo:** Recolección de telemetría de Sistema Operativo sin agentes (Agentless) y despliegue del Agente Orquestador para interactuar vía Lenguaje Natural puro.
+
+- [x] **6.1 Módulos de Análisis Nativos**
+  - [x] Escáner de Servicios Windows: Enumeración automatizada e identificación de Unquoted Paths o ejecutables maliciosos corriendo en AppData/Temp.
+  - [x] Parser de Windows Events: Búsqueda enfocada en Security Logs para anomalías de conexión remota (RDP) y Logs fallidos recurrentes.
+  
+- [x] **6.2 Orquestador de Agentes**
+  - [x] Conexión del LLM con un Agente enrutador para detectar la intención (Intent Parsing).
+  - [x] Auto-ejecución del escaneo correcto en base a las instrucciones PNL.
+  
+- [x] **6.3 Interfaz Conversacional y Reporting**
+  - [x] Motor de exportación triple profile: Técnico, Profesional/Auditoría y Lenguaje Natural simple.
+  - [x] UI del Chatbot embebido en el módulo de Escáneres.
+
+---
+
+## Fase 7 — Optimización Avanzada y Tipado de UX/UI
+
+> **Objetivo:** Refactorizar el Frontend (React) integrando los _Vercel Composition Patterns_, y tipado global.
+
+- [x] **7.1 Clean Architecture en Frontend**
+  - [x] Generación de `src/types/backend.ts` global.
+  - [x] Eliminación de inferencias y tipos genéricos `any`.
+  - [x] Implementación estricta de `AbortController` en peticiones BackendService.
+  - [x] Partición de vistas gordas (`Scanners.tsx`) a componentes modulares aislados (`AiAssistant.tsx`).
+  
+- [x] **7.2 Diseño, Flexibilidad y A11y**
+  - [x] Integración de semántica HTML5 y propiedades `aria-role` para compatibilidad de Accesibilidad.
+  - [x] Securizar endpoints bajo variables de entorno.

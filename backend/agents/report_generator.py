@@ -33,6 +33,19 @@ Devuelve SOLO EL CÓDIGO HTML sin explicaciones ni backticks markdown, comienza 
             
         return filepath
 
+    def generate_all_html_reports(self, data: dict) -> dict:
+        profiles = [
+            ("tecnico", "Técnico (énfasis en rutas, hashes, event IDs y mitigación técnica)"),
+            ("profesional", "Ejecutivo Profesional (énfasis en riesgo de negocio, impacto, cumplimiento)"),
+            ("natural", "Lenguaje Natural (uso de analogías simples, sin jerga técnica, como explicando a un niño)")
+        ]
+        results = {}
+        for key, description in profiles:
+            path = self.generate_html(data, description)
+            results[key] = path
+            
+        return results
+
     def generate_pdf(self, data: dict, profile: str) -> str:
         # For full implementation, ReportLab needs lots of paragraph logic.
         # This is a stub that creates a simple PDF.

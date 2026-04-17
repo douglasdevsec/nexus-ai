@@ -3,23 +3,49 @@ import { Card } from '../components/Card';
 import { Table } from '../components/Table';
 import { Badge } from '../components/Badge';
 import { BackendService } from '../services/backend';
+import { IScanSummary } from '../types/backend';
+
+interface IDashboardFinding {
+  id: number;
+  target: string;
+  vulns: string;
+  severity: JSX.Element;
+  date: string;
+}
 
 export const Dashboard = () => {
-  const [recentFindings, setRecentFindings] = useState<any[]>([]);
+  const [recentFindings, setRecentFindings] = useState<IDashboardFinding[]>([]);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
+    let isMounted = true;
+    
     const fetchScans = async () => {
-      const scans = await BackendService.getRecentScans();
-      const mapped = scans.map((s: any) => ({
-        id: s.id,
-        target: s.target,
-        vulns: s.type, 
-        severity: <Badge severity={s.status === 'completed' ? 'info' : 'high'} />,
-        date: s.timestamp
-      }));
-      setRecentFindings(mapped);
+      setIsLoading(true);
+      try {
+        const scans: IScanSummary[] = await BackendService.getRecentScans();
+        if (isMounted) {
+          const mapped: IDashboardFinding[] = scans.map((s) => ({
+            id: s.id,
+            target: s.target,
+            vulns: s.type, 
+            severity: <Badge severity={s.status === 'completed' ? 'info' : 'high'} />,
+            date: s.timestamp
+          }));
+          setRecentFindings(mapped);
+        }
+      } catch (err) {
+        console.error("Failed to fetch dashboard summary", err);
+      } finally {
+        if (isMounted) setIsLoading(false);
+      }
     };
+    
     fetchScans();
+    
+    return () => {
+      isMounted = false;
+    };
   }, []);
 
   const summaryCards = [
@@ -49,7 +75,11 @@ export const Dashboard = () => {
       </div>
 
       <Card title="Actividad Reciente">
-        <Table columns={columns} data={recentFindings} />
+        {isLoading ? (
+          <div style={{ color: 'var(--text-secondary)' }}>Cargando escaneos recientes...</div>
+        ) : (
+          <Table columns={columns} data={recentFindings} />
+        )}
       </Card>
     </div>
   );

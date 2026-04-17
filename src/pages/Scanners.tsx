@@ -4,27 +4,38 @@ import { Button } from '../components/Button';
 import { Input } from '../components/Input';
 import { Play, Square, Pause, RotateCcw } from 'lucide-react';
 import { BackendService } from '../services/backend';
+import { AiAssistant } from '../components/AiAssistant';
 
 export const Scanners = () => {
-  const [activeTab, setActiveTab] = useState('red');
+  const [activeTab, setActiveTab] = useState('ai');
   const [target, setTarget] = useState('');
 
   const tabs = [
+    { id: 'ai', label: 'Asistente IA ✨' },
     { id: 'red', label: 'Red (Nmap)' },
     { id: 'malware', label: 'Malware (Hash)' },
     { id: 'web', label: 'Vulnerabilidades Web' },
     { id: 'osint', label: 'OSINT' },
   ];
 
+
   return (
     <div>
       <h2 style={{ marginBottom: '1.5rem' }}>Módulos de Escaneo</h2>
 
       {/* Tabs */}
-      <div style={{ display: 'flex', gap: '0.5rem', marginBottom: '2rem', borderBottom: '1px solid var(--border-color)', paddingBottom: '0.5rem' }}>
+      <div 
+        role="tablist" 
+        aria-label="Módulos de Escaneo"
+        style={{ display: 'flex', gap: '0.5rem', marginBottom: '2rem', borderBottom: '1px solid var(--border-color)', paddingBottom: '0.5rem' }}
+      >
         {tabs.map((tab) => (
           <button
             key={tab.id}
+            role="tab"
+            aria-selected={activeTab === tab.id}
+            aria-controls={`panel-${tab.id}`}
+            id={`tab-${tab.id}`}
             onClick={() => setActiveTab(tab.id)}
             style={{
               padding: '0.5rem 1rem',
@@ -42,8 +53,9 @@ export const Scanners = () => {
         ))}
       </div>
 
-      <Card title={`Configuración: ${tabs.find(t => t.id === activeTab)?.label}`}>
-        <div style={{ maxWidth: '500px', marginBottom: '1.5rem' }}>
+      <div role="tabpanel" id={`panel-${activeTab}`} aria-labelledby={`tab-${activeTab}`}>
+        <Card title={`Configuración: ${tabs.find(t => t.id === activeTab)?.label}`}>
+          <div style={{ maxWidth: '500px', marginBottom: '1.5rem' }}>
           {activeTab === 'red' && (
             <Input 
               label="IP o Dominio Objetivo" 
@@ -76,7 +88,10 @@ export const Scanners = () => {
               onChange={(e) => setTarget(e.target.value)}
             />
           )}
+          {activeTab === 'ai' && <AiAssistant />}
         </div>
+
+        {activeTab !== 'ai' && (
 
         <div style={{ display: 'flex', gap: '1rem', alignItems: 'center' }}>
           <Button variant="primary" style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }} onClick={async () => {
@@ -95,7 +110,9 @@ export const Scanners = () => {
             <Square size={16} /> Detener
           </Button>
         </div>
+        )}
       </Card>
+      </div>
     </div>
   );
 };
