@@ -14,41 +14,41 @@
 
 > **Objetivo:** Generar la estructura de carpetas, archivos de configuración base y dependencias iniciales para que el proyecto compile y ejecute una ventana vacía de Tauri.
 
-- [ ] **1.1 Inicialización del proyecto Tauri + React**
-  - [ ] Crear proyecto con `create-tauri-app` (React + TypeScript)
-  - [ ] Verificar que `cargo tauri dev` levanta la ventana nativa vacía
-  - [ ] Configurar `tauri.conf.json` (título, dimensiones, icono placeholder)
+- [x] **1.1 Inicialización del proyecto Tauri + React**
+  - [x] Crear proyecto con `create-tauri-app` (React + TypeScript)
+  - [x] Verificar que `cargo tauri dev` levanta la ventana nativa vacía
+  - [x] Configurar `tauri.conf.json` (título, dimensiones, icono placeholder)
 
-- [ ] **1.2 Estructura de carpetas del Frontend**
-  - [ ] `/src/components/` — Componentes reutilizables de UI
-  - [ ] `/src/pages/` — Vistas principales (Dashboard, Scanners, Reports, Settings)
-  - [ ] `/src/services/` — Clientes de comunicación con el backend
-  - [ ] `/src/stores/` — Estado global (Zustand o Context API)
-  - [ ] `/src/types/` — Interfaces y tipos TypeScript
-  - [ ] `/src/assets/` — Íconos, fuentes, imágenes
+- [x] **1.2 Estructura de carpetas del Frontend**
+  - [x] `/src/components/` — Componentes reutilizables de UI
+  - [x] `/src/pages/` — Vistas principales (Dashboard, Scanners, Reports, Settings)
+  - [x] `/src/services/` — Clientes de comunicación con el backend
+  - [x] `/src/stores/` — Estado global (Zustand o Context API)
+  - [x] `/src/types/` — Interfaces y tipos TypeScript
+  - [x] `/src/assets/` — Íconos, fuentes, imágenes
 
-- [ ] **1.3 Scaffold del Backend Python**
-  - [ ] Crear directorio `/backend/` en la raíz del proyecto
-  - [ ] `/backend/app/` — Módulo principal FastAPI
-  - [ ] `/backend/modules/` — Submódulos de escaneo (nmap, hashing, osint, web)
-  - [ ] `/backend/agents/` — Lógica de agentes IA
-  - [ ] `/backend/db/` — Modelos SQLite y migraciones
-  - [ ] `/backend/utils/` — Helpers y utilidades compartidas
-  - [ ] Generar `requirements.txt` con dependencias base
-  - [ ] Crear `backend/main.py` con servidor FastAPI mínimo (health-check endpoint)
+- [x] **1.3 Scaffold del Backend Python**
+  - [x] Crear directorio `/backend/` en la raíz del proyecto
+  - [x] `/backend/app/` — Módulo principal FastAPI
+  - [x] `/backend/modules/` — Submódulos de escaneo (nmap, hashing, osint, web)
+  - [x] `/backend/agents/` — Lógica de agentes IA
+  - [x] `/backend/db/` — Modelos SQLite y migraciones
+  - [x] `/backend/utils/` — Helpers y utilidades compartidas
+  - [x] Generar `requirements.txt` con dependencias base
+  - [x] Crear `backend/main.py` con servidor FastAPI mínimo (health-check endpoint)
 
-- [ ] **1.4 Base de Datos SQLite**
-  - [ ] Diseñar esquema inicial: tablas `scans`, `findings`, `reports`, `config`, `audit_log`
-  - [ ] Crear script de inicialización de la DB (`db/init_db.py`)
+- [x] **1.4 Base de Datos SQLite**
+  - [x] Diseñar esquema inicial: tablas `scans`, `findings`, `reports`, `config`, `audit_log`
+  - [x] Crear script de inicialización de la DB (`db/init_db.py`)
 
-- [ ] **1.5 Archivos de configuración y documentación**
+- [x] **1.5 Archivos de configuración y documentación**
   - [x] Crear `agent.md` — Directivas de comportamiento del agente
   - [x] Crear `skill.md` — Registro de capacidades y módulos
   - [x] Crear `tech.md` — Stack tecnológico y arquitectura
   - [x] Crear `walkthrough.md` — Bitácora y roadmap
   - [x] Crear `task.md` — Plan maestro de tareas (este archivo)
-  - [ ] `.gitignore` adecuado (node_modules, target, __pycache__, .env, *.db)
-  - [ ] Actualizar `README.md` con instrucciones de instalación y ejecución
+  - [x] `.gitignore` adecuado (node_modules, target, __pycache__, .env, *.db)
+  - [x] Actualizar `README.md` con instrucciones de instalación y ejecución
 
 ---
 

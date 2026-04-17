@@ -1,3 +1,30 @@
-# NEXUS AI
+# AegisAgent (NEXUS AI)
 
-Proyecto de ciberseguridad que refleja la interconexi髇 de todas las herramientas (Nmap, VirusTotal, OSINT) en un solo n鷆leo.
+Aplicaci贸n de escritorio nativa orientada a la auditor铆a de seguridad, an谩lisis de vulnerabilidades y detecci贸n de amenazas (Malware/Ransomware). 
+Construida bajo **Arquitectura Limpia** con capacidades modulares e impulsada por una IA local.
+
+## Tecnolog铆as Principales
+- **Frontend**: React + TypeScript (Tauri)
+- **Backend**: Python (FastAPI, integraciones de bajo nivel)
+- **Inteligencia Artificial**: Agentes locales basados en Ollama (LLM)
+- **Almacenamiento**: SQLite
+- **Herramientas OS**: Nmap, Wappalyzer, VirusTotal Hashes
+
+## Instalaci贸n y Ejecuci贸n Local
+
+### Prerrequisitos
+1. **Node.js** y **npm** (para el frontend de React).
+2. **Rust** y **Cargo** (para los bindings nativos de Tauri).
+3. **Python 3.10+** (para los subm贸dulos de seguridad y motor de FastAPI).
+
+### Pasos
+1. Instalar dependencias del GUI:
+   ```bash
+   npm install
+   ```
+2. Iniciar el entorno de desarrollo de Tauri en Windows/Linux:
+   ```bash
+   npm run tauri dev
+   ```
+
+*(Instrucciones de backend y agentes IA se detallar谩n en Fases 3 y 4).*
