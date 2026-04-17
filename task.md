@@ -62,10 +62,10 @@
   - [x] Crear variables CSS globales y tokens de diseño
   - [x] Implementar componentes base: Button, Card, Input, Badge, Table
 
-- [ ] **2.2 Layout principal y navegación**
-  - [ ] Sidebar con navegación entre módulos (Dashboard, Escáneres, Reportes, Configuración)
-  - [ ] Header con indicador de estado del sistema (IA conectada/desconectada, backend activo)
-  - [ ] Área de contenido principal con enrutamiento
+- [x] **2.2 Layout principal y navegación**
+  - [x] Sidebar con navegación entre módulos (Dashboard, Escáneres, Reportes, Configuración)
+  - [x] Header con indicador de estado del sistema (IA conectada/desconectada, backend activo)
+  - [x] Área de contenido principal con enrutamiento
 
 - [ ] **2.3 Panel de Configuración de IA (`/settings`)**
   - [ ] Selector de motor: Local (Ollama) o API en la nube (OpenAI / Anthropic)
