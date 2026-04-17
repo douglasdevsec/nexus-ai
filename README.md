@@ -31,11 +31,22 @@ Si los usuarios requieren mayor poder de razonamiento rápido y seleccionan Goog
 
 ## Instalación y Ejecución Local
 
-### Prerrequisitos
+### Prerrequisitos de Entorno
 1. **Node.js** y **npm** (Frontend).
 2. **Rust** y **Cargo** (Backbone Nativo de Tauri V2).
 3. **Python 3.10+** (Motor Analítico de FastAPI).
-4. *(Opcional)* Terminal o CLI de [Ollama](https://ollama.com/) para escaneos sin internet + el modelo `llama3`.
+
+### Prerrequisitos Nativos (Software)
+Para que los escáneres y la Inteligencia Artificial funcionen plenamente tras bastidores, **es obligatorio** que el host Windows/Linux posea instaladas las siguientes herramientas a nivel de sistema (`PATH`):
+
+1. **Nmap (Network Mapper):** Requerido para el escaneo de puertos local e IPs.
+   - *Windows:* Instalar [nmap-setup.exe](https://nmap.org/download.html#windows) y marcar la casilla de instalación de `Npcap`.
+   - *Linux:* `sudo apt install nmap`
+2. **Ollama:** Requerido para operar el Orquestador con Inteligencia Artificial sin internet (Privacy-First).
+   - Descargar el instalador desde [Ollama.com](https://ollama.com/download).
+   - Una vez instalado, abrir un terminal y descargar el modelo Llama 3 ejecutando: `ollama run llama3`.
+
+> **Atención:** Después de instalar estos softwares base, cierra por completo tu cónsola/IDE y ábrelo nuevamente para que Windows reconozca las nuevas variables de Entorno `PATH`, de lo contrario el backend lanzará errores de conexión ("Nmap not installed" o "Ollama term not recognized").
 
 ### 1. Levantar el Motor Backend (Python)
 Dentro del nivel de la carpeta `/backend`:
