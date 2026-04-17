@@ -156,19 +156,19 @@
   - [x] Priorización de remediaciones por impacto
   - [x] Sugerencias específicas para entornos Windows
 
-- [ ] **4.4 Generador de Reportes**
-  - [ ] `backend/agents/report_generator.py`
-  - [ ] **Perfil Técnico:** Comandos ejecutados, vectores de ataque, evidencia bruta, hashes
-  - [ ] **Perfil Ejecutivo:** Resumen de riesgos de negocio, impacto financiero, soluciones
-  - [ ] Exportación a PDF (weasyprint o reportlab)
-  - [ ] Exportación a HTML con estilos embebidos
-  - [ ] Selector de perfil en la interfaz de reportes
+- [x] **4.4 Generador de Reportes**
+  - [x] `backend/agents/report_generator.py`
+  - [x] **Perfil Técnico:** Comandos ejecutados, vectores de ataque, evidencia bruta, hashes
+  - [x] **Perfil Ejecutivo:** Resumen de riesgos de negocio, impacto financiero, soluciones
+  - [x] Exportación a PDF (weasyprint o reportlab)
+  - [x] Exportación a HTML con estilos embebidos
+  - [x] Selector de perfil en la interfaz de reportes
 
-- [ ] **4.5 Flujo integrado end-to-end**
-  - [ ] Escaneo → Análisis IA → Clasificación → Remediación → Reporte
-  - [ ] Pensamientos del agente visibles en consola integrada en tiempo real
-  - [ ] Barra de chat procesa instrucciones en lenguaje natural y ejecuta módulos
-  - [ ] Validación completa del flujo con caso de prueba real
+- [x] **4.5 Flujo integrado end-to-end**
+  - [x] Escaneo → Análisis IA → Clasificación → Remediación → Reporte
+  - [x] Pensamientos del agente visibles en consola integrada en tiempo real
+  - [x] Barra de chat procesa instrucciones en lenguaje natural y ejecuta módulos
+  - [x] Validación completa del flujo con caso de prueba real
 
 ---
 
