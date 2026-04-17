@@ -2,10 +2,11 @@ import React from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { Layout } from './components/Layout';
 
+import { Settings } from './pages/Settings';
+
 const Dashboard = () => <div><h2>Dashboard en construcción...</h2></div>;
 const Scanners = () => <div><h2>Escáneres en construcción...</h2></div>;
 const Reports = () => <div><h2>Reportes en construcción...</h2></div>;
-const Settings = () => <div><h2>Configuración en construcción...</h2></div>;
 
 function App() {
   return (

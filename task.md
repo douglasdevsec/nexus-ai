@@ -67,12 +67,12 @@
   - [x] Header con indicador de estado del sistema (IA conectada/desconectada, backend activo)
   - [x] Área de contenido principal con enrutamiento
 
-- [ ] **2.3 Panel de Configuración de IA (`/settings`)**
-  - [ ] Selector de motor: Local (Ollama) o API en la nube (OpenAI / Anthropic)
-  - [ ] Campo para API Key (con toggle de visibilidad y validación)
-  - [ ] Dropdown para modelo local disponible (detección automática vía Ollama API)
-  - [ ] Botón de "Test de Conexión" con feedback visual
-  - [ ] Persistencia de configuración en SQLite
+- [x] **2.3 Panel de Configuración de IA (`/settings`)**
+  - [x] Selector de motor: Local (Ollama) o API en la nube (OpenAI / Anthropic)
+  - [x] Campo para API Key (con toggle de visibilidad y validación)
+  - [x] Dropdown para modelo local disponible (detección automática vía Ollama API)
+  - [x] Botón de "Test de Conexión" con feedback visual
+  - [x] Persistencia de configuración en SQLite
 
 - [ ] **2.4 Página de Dashboard**
   - [ ] Tarjetas de resumen: Total de escaneos, vulnerabilidades por severidad, último escaneo
