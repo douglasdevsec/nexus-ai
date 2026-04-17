@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { Card } from '../components/Card';
 import { Table } from '../components/Table';
 import { Badge } from '../components/Badge';
@@ -14,7 +14,7 @@ export const Dashboard = () => {
         id: s.id,
         target: s.target,
         vulns: s.type, 
-        severity: <Badge severity={s.status === 'completed' ? 'info' : 'danger'} />,
+        severity: <Badge severity={s.status === 'completed' ? 'info' : 'high'} />,
         date: s.timestamp
       }));
       setRecentFindings(mapped);
