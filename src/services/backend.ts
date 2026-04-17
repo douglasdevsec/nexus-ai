@@ -28,4 +28,14 @@ export class BackendService {
     });
     return await response.json();
   }
+
+  static async getRecentScans() {
+    try {
+      const response = await fetch(`${API_URL}/scans`);
+      return await response.json();
+    } catch (e) {
+      console.error(e);
+      return [];
+    }
+  }
 }

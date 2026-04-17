@@ -3,6 +3,7 @@ import { Card } from '../components/Card';
 import { Button } from '../components/Button';
 import { Input } from '../components/Input';
 import { Play, Square, Pause, RotateCcw } from 'lucide-react';
+import { BackendService } from '../services/backend';
 
 export const Scanners = () => {
   const [activeTab, setActiveTab] = useState('red');
@@ -78,16 +79,19 @@ export const Scanners = () => {
         </div>
 
         <div style={{ display: 'flex', gap: '1rem', alignItems: 'center' }}>
-          <Button variant="primary" style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+          <Button variant="primary" style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }} onClick={async () => {
+            if (activeTab === 'red') await BackendService.scanNetwork(target);
+            if (activeTab === 'malware') await BackendService.scanMalware(target);
+          }}>
             <Play size={16} /> Iniciar
           </Button>
-          <Button style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+          <Button style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }} onClick={async () => await fetch('http://localhost:8000/scan/control', { method: 'POST', body: JSON.stringify({ command: 'pause' }), headers: { 'Content-Type': 'application/json' } })}>
             <Pause size={16} /> Pausar
           </Button>
-          <Button style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+          <Button style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }} onClick={async () => await fetch('http://localhost:8000/scan/control', { method: 'POST', body: JSON.stringify({ command: 'resume' }), headers: { 'Content-Type': 'application/json' } })}>
             <RotateCcw size={16} /> Reanudar
           </Button>
-          <Button variant="danger" style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+          <Button variant="danger" style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }} onClick={async () => await fetch('http://localhost:8000/scan/control', { method: 'POST', body: JSON.stringify({ command: 'stop' }), headers: { 'Content-Type': 'application/json' } })}>
             <Square size={16} /> Detener
           </Button>
         </div>

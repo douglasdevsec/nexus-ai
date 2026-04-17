@@ -122,14 +122,14 @@
   - [x] Output: lista de archivos con estado (limpio, sospechoso, malicioso)
   - [x] Barra de progreso en el frontend
 
-- [ ] **3.4 Persistencia de resultados**
-  - [ ] Guardar cada escaneo y sus hallazgos en SQLite
-  - [ ] Endpoint para consultar historial de escaneos
-  - [ ] Renderizar historial en la tabla del Dashboard
+- [x] **3.4 Persistencia de resultados**
+  - [x] Guardar cada escaneo y sus hallazgos en SQLite
+  - [x] Endpoint para consultar historial de escaneos
+  - [x] Renderizar historial en la tabla del Dashboard
 
-- [ ] **3.5 Control de procesos**
-  - [ ] Implementar lógica de `Pausar` / `Reanudar` / `Detener` en backend
-  - [ ] Sincronizar estado de botones en el frontend con el estado real del proceso
+- [x] **3.5 Control de procesos**
+  - [x] Implementar lógica de `Pausar` / `Reanudar` / `Detener` en backend
+  - [x] Sincronizar estado de botones en el frontend con el estado real del proceso
 
 ---
 
