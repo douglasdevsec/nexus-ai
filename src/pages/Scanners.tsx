@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { Card } from '../components/Card';
 import { Button } from '../components/Button';
 import { Input } from '../components/Input';
-import { Play, Square, Pause, RotateCcw, AlertTriangle, CheckCircle, XCircle } from 'lucide-react';
+import { Play, Square, Pause, RotateCcw, CheckCircle, XCircle } from 'lucide-react';
 import { BackendService } from '../services/backend';
 import { AiAssistant } from '../components/AiAssistant';
 
