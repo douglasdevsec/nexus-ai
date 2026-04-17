@@ -3,8 +3,8 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { Layout } from './components/Layout';
 
 import { Settings } from './pages/Settings';
+import { Dashboard } from './pages/Dashboard';
 
-const Dashboard = () => <div><h2>Dashboard en construcción...</h2></div>;
 const Scanners = () => <div><h2>Escáneres en construcción...</h2></div>;
 const Reports = () => <div><h2>Reportes en construcción...</h2></div>;
 

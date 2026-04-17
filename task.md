@@ -74,10 +74,10 @@
   - [x] Botón de "Test de Conexión" con feedback visual
   - [x] Persistencia de configuración en SQLite
 
-- [ ] **2.4 Página de Dashboard**
-  - [ ] Tarjetas de resumen: Total de escaneos, vulnerabilidades por severidad, último escaneo
-  - [ ] Tabla de actividad reciente (últimos 10 hallazgos)
-  - [ ] Indicadores de estado de cada módulo
+- [x] **2.4 Página de Dashboard**
+  - [x] Tarjetas de resumen: Total de escaneos, vulnerabilidades por severidad, último escaneo
+  - [x] Tabla de actividad reciente (últimos 10 hallazgos)
+  - [x] Indicadores de estado de cada módulo
 
 - [ ] **2.5 Interfaz de módulos de escaneo**
   - [ ] Vista con tabs para cada módulo (Red, Malware, Web, OSINT, Infraestructura)
