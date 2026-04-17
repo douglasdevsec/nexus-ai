@@ -248,3 +248,18 @@
   - [x] Añadir modelo `gemini` al combo principal.
   - [x] Añadir botón para "Guardar Configuración".
   - [x] Actualizar el store o state del frontend para impactar el backend.
+
+---
+
+## Fase 9 — 100% Funcionalidad en Controles de Escaneo
+
+> **Objetivo:** Visualización total, bloqueos reactivos y mapeo 1:1 de los botones de los escáneres manuales con las APIS.
+
+- [x] **9.1 Reingeniería Frontend (`Scanners.tsx`)**
+  - [x] Añadir estados `isScanning`, `scanResult` y `scanError`.
+  - [x] Implementar validación de input de objetivo (target vacíos) y bloqueo de botones.
+  - [x] Renderizar card emergente con resultados JSON en crudo o parseados para cada tipo de escaner.
+
+- [x] **9.2 Implementación APIs (`main.py` & `backend.ts`)**
+  - [x] Construir y exportar funciones `scanWeb(target)` y `scanOsint(target)`.
+  - [x] Crear endpoints robustos `/scan/web` y `/scan/osint`.

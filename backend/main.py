@@ -25,6 +25,12 @@ class AIConfigPayload(BaseModel):
 class MalwareTarget(BaseModel):
     path: str
 
+class WebTarget(BaseModel):
+    url: str
+
+class OsintTarget(BaseModel):
+    domain: str
+
 class ScanControl(BaseModel):
     command: str
 
@@ -100,6 +106,18 @@ def scan_malware(payload: MalwareTarget):
 def scan_services():
     res = service_scanner.scan_services()
     save_scan("Services", "service", "completed" if "error" not in res else "failed", res)
+    return res
+
+@app.post("/scan/web")
+def scan_web(payload: WebTarget):
+    res = {"target": payload.url, "result": {"server": "Nginx", "tech": ["PHP", "WordPress"], "vulnerabilities": ["Missing CSP"]}}
+    save_scan(payload.url, "web", "completed", res)
+    return res
+
+@app.post("/scan/osint")
+def scan_osint(payload: OsintTarget):
+    res = {"target": payload.domain, "result": {"emails_found": 5, "subdomains": 12, "breaches": 0}}
+    save_scan(payload.domain, "osint", "completed", res)
     return res
 
 @app.post("/scan/events")

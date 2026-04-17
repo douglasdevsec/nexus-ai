@@ -32,6 +32,26 @@ export class BackendService {
     return await response.json();
   }
 
+  static async scanWeb(url: string, signal?: AbortSignal) {
+    const response = await fetch(`${API_URL}/scan/web`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ url }),
+      signal
+    });
+    return await response.json();
+  }
+
+  static async scanOsint(domain: string, signal?: AbortSignal) {
+    const response = await fetch(`${API_URL}/scan/osint`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ domain }),
+      signal
+    });
+    return await response.json();
+  }
+
   static async getRecentScans(signal?: AbortSignal) {
     try {
       const response = await fetch(`${API_URL}/scans`, { signal });

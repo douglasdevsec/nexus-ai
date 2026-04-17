@@ -2,13 +2,17 @@ import { useState } from 'react';
 import { Card } from '../components/Card';
 import { Button } from '../components/Button';
 import { Input } from '../components/Input';
-import { Play, Square, Pause, RotateCcw } from 'lucide-react';
+import { Play, Square, Pause, RotateCcw, AlertTriangle, CheckCircle, XCircle } from 'lucide-react';
 import { BackendService } from '../services/backend';
 import { AiAssistant } from '../components/AiAssistant';
 
 export const Scanners = () => {
-  const [activeTab, setActiveTab] = useState('ai');
+  const [activeTab, setActiveTab] = useState('red');
   const [target, setTarget] = useState('');
+  
+  const [isScanning, setIsScanning] = useState(false);
+  const [scanResult, setScanResult] = useState<any>(null);
+  const [scanError, setScanError] = useState<string | null>(null);
 
   const tabs = [
     { id: 'ai', label: 'Asistente IA ✨' },
@@ -36,7 +40,12 @@ export const Scanners = () => {
             aria-selected={activeTab === tab.id}
             aria-controls={`panel-${tab.id}`}
             id={`tab-${tab.id}`}
-            onClick={() => setActiveTab(tab.id)}
+            onClick={() => {
+              setActiveTab(tab.id);
+              setTarget('');
+              setScanResult(null);
+              setScanError(null);
+            }}
             style={{
               padding: '0.5rem 1rem',
               backgroundColor: activeTab === tab.id ? 'var(--bg-tertiary)' : 'transparent',
@@ -92,24 +101,80 @@ export const Scanners = () => {
         </div>
 
         {activeTab !== 'ai' && (
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
+            <div style={{ display: 'flex', gap: '1rem', alignItems: 'center' }}>
+              <Button 
+                variant="primary" 
+                style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }} 
+                disabled={isScanning}
+                onClick={async () => {
+                  if (!target.trim()) {
+                    setScanError("El objetivo (Target) no puede estar vacío.");
+                    return;
+                  }
+                  setIsScanning(true);
+                  setScanError(null);
+                  setScanResult(null);
+                  
+                  try {
+                    let res;
+                    if (activeTab === 'red') res = await BackendService.scanNetwork(target);
+                    else if (activeTab === 'malware') res = await BackendService.scanMalware(target);
+                    else if (activeTab === 'web') res = await BackendService.scanWeb(target);
+                    else if (activeTab === 'osint') res = await BackendService.scanOsint(target);
+                    
+                    if (res && res.error) {
+                      setScanError(res.error);
+                    } else {
+                      setScanResult(res);
+                    }
+                  } catch (e) {
+                      setScanError(e instanceof Error ? e.message : "Error fatal de conexión al backend.");
+                  } finally {
+                      setIsScanning(false);
+                  }
+                }}
+              >
+                <Play size={16} /> {isScanning ? 'Escaneando...' : 'Iniciar'}
+              </Button>
+              <Button disabled={isScanning} style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }} onClick={async () => await fetch('http://localhost:8000/scan/control', { method: 'POST', body: JSON.stringify({ command: 'pause' }), headers: { 'Content-Type': 'application/json' } })}>
+                <Pause size={16} /> Pausar
+              </Button>
+              <Button disabled={isScanning} style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }} onClick={async () => await fetch('http://localhost:8000/scan/control', { method: 'POST', body: JSON.stringify({ command: 'resume' }), headers: { 'Content-Type': 'application/json' } })}>
+                <RotateCcw size={16} /> Reanudar
+              </Button>
+              <Button variant="danger" disabled={!isScanning} style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }} onClick={async () => await fetch('http://localhost:8000/scan/control', { method: 'POST', body: JSON.stringify({ command: 'stop' }), headers: { 'Content-Type': 'application/json' } })}>
+                <Square size={16} /> Detener
+              </Button>
+            </div>
 
-        <div style={{ display: 'flex', gap: '1rem', alignItems: 'center' }}>
-          <Button variant="primary" style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }} onClick={async () => {
-            if (activeTab === 'red') await BackendService.scanNetwork(target);
-            if (activeTab === 'malware') await BackendService.scanMalware(target);
-          }}>
-            <Play size={16} /> Iniciar
-          </Button>
-          <Button style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }} onClick={async () => await fetch('http://localhost:8000/scan/control', { method: 'POST', body: JSON.stringify({ command: 'pause' }), headers: { 'Content-Type': 'application/json' } })}>
-            <Pause size={16} /> Pausar
-          </Button>
-          <Button style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }} onClick={async () => await fetch('http://localhost:8000/scan/control', { method: 'POST', body: JSON.stringify({ command: 'resume' }), headers: { 'Content-Type': 'application/json' } })}>
-            <RotateCcw size={16} /> Reanudar
-          </Button>
-          <Button variant="danger" style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }} onClick={async () => await fetch('http://localhost:8000/scan/control', { method: 'POST', body: JSON.stringify({ command: 'stop' }), headers: { 'Content-Type': 'application/json' } })}>
-            <Square size={16} /> Detener
-          </Button>
-        </div>
+            {/* Panel de Resultados / Error */}
+            {scanError && (
+              <div style={{ color: 'var(--danger)', display: 'flex', alignItems: 'center', gap: '0.5rem', marginTop: '1rem' }}>
+                <XCircle size={18} /> {scanError}
+              </div>
+            )}
+
+            {scanResult && (
+              <div style={{ marginTop: '1.5rem', padding: '1.5rem', backgroundColor: 'var(--bg-tertiary)', borderRadius: '8px' }}>
+                <h3 style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '1rem' }}>
+                  <CheckCircle size={20} color="var(--primary-color)" /> Resultados del Módulo
+                </h3>
+                <div style={{ 
+                  background: 'var(--bg-primary)', 
+                  padding: '1rem', 
+                  borderRadius: '4px', 
+                  border: '1px solid var(--border-color)',
+                  maxHeight: '400px',
+                  overflowY: 'auto'
+                }}>
+                  <pre style={{ margin: 0, color: 'var(--text-secondary)', fontSize: '0.85rem', whiteSpace: 'pre-wrap' }}>
+                    {JSON.stringify(scanResult, null, 2)}
+                  </pre>
+                </div>
+              </div>
+            )}
+          </div>
         )}
       </Card>
       </div>
