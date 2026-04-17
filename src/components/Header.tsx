@@ -1,7 +1,11 @@
 import React from 'react';
 import { Server, Brain } from 'lucide-react';
 
-export const Header: React.FC = () => {
+interface HeaderProps {
+  isBackendActive?: boolean;
+}
+
+export const Header: React.FC<HeaderProps> = ({ isBackendActive = false }) => {
   return (
     <header className="header">
       <div className="header-title">
@@ -10,8 +14,8 @@ export const Header: React.FC = () => {
       <div className="header-status">
         <div className="status-item">
           <Server size={18} />
-          <span className="status-indicator active"></span>
-          <span>Backend Activo</span>
+          <span className={`status-indicator ${isBackendActive ? 'active' : ''}`}></span>
+          <span>Backend {isBackendActive ? 'Activo' : 'Offline'}</span>
         </div>
         <div className="status-item">
           <Brain size={18} />

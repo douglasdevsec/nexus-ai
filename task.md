@@ -100,11 +100,11 @@
 
 > **Objetivo:** Conectar el frontend con el backend Python. Implementar los primeros módulos funcionales (escaneo de puertos y hashing de archivos) con resultado visible en la GUI.
 
-- [ ] **3.1 Canal de comunicación Tauri ↔ Python**
-  - [ ] Implementar spawn de subproceso Python (sidecar) desde Tauri
-  - [ ] Establecer protocolo de comunicación (stdin/stdout JSON o HTTP local)
-  - [ ] Crear servicio frontend (`/src/services/backend.ts`) para enviar/recibir comandos
-  - [ ] Manejo de errores y reconexión automática
+- [x] **3.1 Canal de comunicación Tauri ↔ Python**
+  - [x] Implementar spawn de subproceso Python (sidecar) desde Tauri
+  - [x] Establecer protocolo de comunicación (stdin/stdout JSON o HTTP local)
+  - [x] Crear servicio frontend (`/src/services/backend.ts`) para enviar/recibir comandos
+  - [x] Manejo de errores y reconexión automática
 
 - [ ] **3.2 Módulo de Red — Nmap Engine**
   - [ ] `backend/modules/nmap_scanner.py` — Wrapper de python-nmap
