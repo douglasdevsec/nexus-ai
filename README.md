@@ -40,7 +40,7 @@ Si los usuarios requieren mayor poder de razonamiento rápido y seleccionan Goog
 Para que los escáneres y la Inteligencia Artificial funcionen plenamente tras bastidores, **es obligatorio** que el host Windows/Linux posea instaladas las siguientes herramientas a nivel de sistema (`PATH`):
 
 1. **Nmap (Network Mapper):** Requerido para el escaneo de puertos local e IPs.
-   - *Windows:* Instalar [nmap-setup.exe](https://nmap.org/download.html#windows) y marcar la casilla de instalación de `Npcap`.
+   - *Windows:* Instalar [nmap-7.99-setup.exe](https://nmap.org/download.html#windows) y marcar la casilla de instalación de `Npcap`.
    - *Linux:* `sudo apt install nmap`
 2. **Ollama:** Requerido para operar el Orquestador con Inteligencia Artificial sin internet (Privacy-First).
    - Descargar el instalador desde [Ollama.com](https://ollama.com/download).
