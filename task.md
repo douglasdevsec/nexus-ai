@@ -106,13 +106,13 @@
   - [x] Crear servicio frontend (`/src/services/backend.ts`) para enviar/recibir comandos
   - [x] Manejo de errores y reconexión automática
 
-- [ ] **3.2 Módulo de Red — Nmap Engine**
-  - [ ] `backend/modules/nmap_scanner.py` — Wrapper de python-nmap
-  - [ ] Escaneo TCP SYN básico por rango de puertos
-  - [ ] Detección de servicios y versiones (`-sV`)
-  - [ ] Fingerprinting de OS (`-O`) con privilegios
-  - [ ] Output estructurado JSON → frontend → tabla de resultados
-  - [ ] Streaming de progreso en tiempo real a la consola integrada
+- [x] **3.2 Módulo de Red — Nmap Engine**
+  - [x] `backend/modules/nmap_scanner.py` — Wrapper de python-nmap
+  - [x] Escaneo TCP SYN básico por rango de puertos
+  - [x] Detección de servicios y versiones (`-sV`)
+  - [x] Fingerprinting de OS (`-O`) con privilegios
+  - [x] Output estructurado JSON → frontend → tabla de resultados
+  - [x] Streaming de progreso en tiempo real a la consola integrada
 
 - [ ] **3.3 Módulo de Detección de Malware — Hash Scanner**
   - [ ] `backend/modules/hash_scanner.py` — Scanner del sistema de archivos
