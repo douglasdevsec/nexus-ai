@@ -3,9 +3,13 @@ from fastapi.middleware.cors import CORSMiddleware
 
 from pydantic import BaseModel
 from modules.nmap_scanner import nmap_engine
+from modules.hash_scanner import hash_scanner
 
 class NetworkTarget(BaseModel):
     target: str
+
+class MalwareTarget(BaseModel):
+    path: str
 
 app = FastAPI(title="AegisAgent Backend API")
 
@@ -24,4 +28,9 @@ def health_check():
 @app.post("/scan/network")
 def scan_network(payload: NetworkTarget):
     res = nmap_engine.scan_network(target=payload.target)
+    return res
+
+@app.post("/scan/malware")
+def scan_malware(payload: MalwareTarget):
+    res = hash_scanner.scan_directory(directory_path=payload.path)
     return res

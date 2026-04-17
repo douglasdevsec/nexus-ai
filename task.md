@@ -114,13 +114,13 @@
   - [x] Output estructurado JSON → frontend → tabla de resultados
   - [x] Streaming de progreso en tiempo real a la consola integrada
 
-- [ ] **3.3 Módulo de Detección de Malware — Hash Scanner**
-  - [ ] `backend/modules/hash_scanner.py` — Scanner del sistema de archivos
-  - [ ] Cálculo de SHA-256 para archivos en una ruta dada
-  - [ ] Comparación contra base de datos local de hashes maliciosos conocidos
-  - [ ] Consulta opcional a API de VirusTotal para verificación cruzada
-  - [ ] Output: lista de archivos con estado (limpio, sospechoso, malicioso)
-  - [ ] Barra de progreso en el frontend
+- [x] **3.3 Módulo de Detección de Malware — Hash Scanner**
+  - [x] `backend/modules/hash_scanner.py` — Scanner del sistema de archivos
+  - [x] Cálculo de SHA-256 para archivos en una ruta dada
+  - [x] Comparación contra base de datos local de hashes maliciosos conocidos
+  - [x] Consulta opcional a API de VirusTotal para verificación cruzada
+  - [x] Output: lista de archivos con estado (limpio, sospechoso, malicioso)
+  - [x] Barra de progreso en el frontend
 
 - [ ] **3.4 Persistencia de resultados**
   - [ ] Guardar cada escaneo y sus hallazgos en SQLite
