@@ -3,6 +3,7 @@ import { Card } from '../components/Card';
 import { Button } from '../components/Button';
 import { Input } from '../components/Input';
 import { Eye, EyeOff, CheckCircle } from 'lucide-react';
+import { BackendService } from '../services/backend';
 
 export const Settings = () => {
   const [engine, setEngine] = useState('ollama');
@@ -11,9 +12,15 @@ export const Settings = () => {
   const [selectedModel, setSelectedModel] = useState('llama3');
   const [testStatus, setTestStatus] = useState<null | 'success' | 'error'>(null);
 
-  const handleTestConnection = () => {
-    // Simulating connection test
-    setTestStatus('success');
+  const handleTestConnection = async () => {
+    setTestStatus(null);
+    try {
+        await BackendService.updateAiConfig(engine, apiKey);
+        setTestStatus('success');
+    } catch (error) {
+        console.error(error);
+        setTestStatus('error');
+    }
     setTimeout(() => setTestStatus(null), 3000);
   };
 
@@ -33,6 +40,7 @@ export const Settings = () => {
               style={{ width: '100%' }}
             >
               <option value="ollama">Local (Ollama)</option>
+              <option value="gemini">Google Gemini (API)</option>
               <option value="openai">OpenAI (API)</option>
               <option value="anthropic">Anthropic (API)</option>
             </select>
@@ -86,10 +94,15 @@ export const Settings = () => {
           )}
 
           <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', marginTop: '1.5rem' }}>
-            <Button variant="primary" onClick={handleTestConnection}>Test de Conexión</Button>
+            <Button variant="primary" onClick={handleTestConnection}>Guardar y Testear</Button>
             {testStatus === 'success' && (
               <span style={{ color: 'var(--success)', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-                <CheckCircle size={18} /> Conexión Exitosa
+                <CheckCircle size={18} /> Configuración Aplicada
+              </span>
+            )}
+             {testStatus === 'error' && (
+              <span style={{ color: 'var(--danger)', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+                Error de Conexión
               </span>
             )}
           </div>

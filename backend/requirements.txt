@@ -4,3 +4,4 @@ python-nmap==0.7.1
 ollama==0.2.1
 requests==2.32.3
 pydantic==2.7.4
+google-generativeai

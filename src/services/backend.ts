@@ -42,4 +42,13 @@ export class BackendService {
       return [];
     }
   }
+
+  static async updateAiConfig(engine: string, apiKey: string) {
+    const response = await fetch(`${API_URL}/config/ai`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ engine, apiKey })
+    });
+    return await response.json();
+  }
 }

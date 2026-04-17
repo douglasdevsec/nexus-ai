@@ -18,6 +18,10 @@ class NetworkTarget(BaseModel):
 class AgentPrompt(BaseModel):
     prompt: str
 
+class AIConfigPayload(BaseModel):
+    engine: str
+    apiKey: str | None = None
+
 class MalwareTarget(BaseModel):
     path: str
 
@@ -67,6 +71,12 @@ def analyze_scan(payload: AnalyzeTarget):
 @app.get("/health")
 def health_check():
     return {"status": "ok", "message": "AegisAgent backend is running."}
+
+@app.post("/config/ai")
+def update_ai_config(payload: AIConfigPayload):
+    from agents.llm_client import llm_client
+    llm_client.update_config(engine=payload.engine, api_key=payload.apiKey)
+    return {"status": "success", "engine": payload.engine}
 
 @app.post("/scan/control")
 def control_scan(payload: ScanControl):

@@ -232,3 +232,19 @@
 - [x] **7.2 Diseño, Flexibilidad y A11y**
   - [x] Integración de semántica HTML5 y propiedades `aria-role` para compatibilidad de Accesibilidad.
   - [x] Securizar endpoints bajo variables de entorno.
+
+---
+
+## Fase 8 — Integración de Google Gemini y Configuración
+
+> **Objetivo:** Permitir el uso de Gemini como motor analítico principal o secundario y habilitar persistencia mínima de estado en la UI de "Configuración".
+
+- [x] **8.1 Configuración Backend**
+  - [x] Añadir `google-generativeai` a dependencias (e instalar).
+  - [x] Proveer endpoint `/config/ai` en `main.py`.
+  - [x] Actualizar `llm_client.py` para soportar rutado a la API de Gemini.
+
+- [x] **8.2 Interfaz Settings.tsx**
+  - [x] Añadir modelo `gemini` al combo principal.
+  - [x] Añadir botón para "Guardar Configuración".
+  - [x] Actualizar el store o state del frontend para impactar el backend.
