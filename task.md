@@ -84,15 +84,15 @@
   - [x] Botones de control por módulo: `Iniciar`, `Pausar`, `Reanudar`, `Detener`
   - [x] Campos de input específicos por módulo (IP/dominio objetivo, ruta de archivos)
 
-- [ ] **2.6 Consola integrada en tiempo real**
-  - [ ] Área de terminal con scroll automático y timestamps
-  - [ ] Diferenciación visual por tipo de mensaje (comando, resultado, error, pensamiento IA)
-  - [ ] Botón de limpiar/exportar consola
+- [x] **2.6 Consola integrada en tiempo real**
+  - [x] Área de terminal con scroll automático y timestamps
+  - [x] Diferenciación visual por tipo de mensaje (comando, resultado, error, pensamiento IA)
+  - [x] Botón de limpiar/exportar consola
 
-- [ ] **2.7 Barra de chat interactiva (Input bidireccional)**
-  - [ ] Input de texto para instrucciones en lenguaje natural
-  - [ ] Historial de mensajes con burbujas diferenciadas (usuario vs. agente)
-  - [ ] Parsing de intenciones (preparación para la Fase 4)
+- [x] **2.7 Barra de chat interactiva (Input bidireccional)**
+  - [x] Input de texto para instrucciones en lenguaje natural
+  - [x] Historial de mensajes con burbujas diferenciadas (usuario vs. agente)
+  - [x] Parsing de intenciones (preparación para la Fase 4)
 
 ---
 
