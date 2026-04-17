@@ -79,10 +79,10 @@
   - [x] Tabla de actividad reciente (últimos 10 hallazgos)
   - [x] Indicadores de estado de cada módulo
 
-- [ ] **2.5 Interfaz de módulos de escaneo**
-  - [ ] Vista con tabs para cada módulo (Red, Malware, Web, OSINT, Infraestructura)
-  - [ ] Botones de control por módulo: `Iniciar`, `Pausar`, `Reanudar`, `Detener`
-  - [ ] Campos de input específicos por módulo (IP/dominio objetivo, ruta de archivos)
+- [x] **2.5 Interfaz de módulos de escaneo**
+  - [x] Vista con tabs para cada módulo (Red, Malware, Web, OSINT, Infraestructura)
+  - [x] Botones de control por módulo: `Iniciar`, `Pausar`, `Reanudar`, `Detener`
+  - [x] Campos de input específicos por módulo (IP/dominio objetivo, ruta de archivos)
 
 - [ ] **2.6 Consola integrada en tiempo real**
   - [ ] Área de terminal con scroll automático y timestamps

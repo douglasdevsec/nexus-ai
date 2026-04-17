@@ -4,8 +4,8 @@ import { Layout } from './components/Layout';
 
 import { Settings } from './pages/Settings';
 import { Dashboard } from './pages/Dashboard';
+import { Scanners } from './pages/Scanners';
 
-const Scanners = () => <div><h2>Escáneres en construcción...</h2></div>;
 const Reports = () => <div><h2>Reportes en construcción...</h2></div>;
 
 function App() {
