@@ -176,15 +176,15 @@
 
 > **Objetivo:** Motor de compilación de reportes exportables y ajustes finos globales.
 
-- [ ] **5.1 Motor de reportes**
-  - [ ] Compilación PDF/JSON/HTML para entrega de auditoría
-  - [ ] Templates personalizables por tipo de cliente
-  - [ ] Inclusión de evidencia visual (screenshots, gráficos de severidad)
+- [x] **5.1 Motor de reportes**
+  - [x] Compilación PDF/JSON/HTML para entrega de auditoría
+  - [x] Templates personalizables por tipo de cliente
+  - [x] Inclusión de evidencia visual (screenshots, gráficos de severidad)
 
-- [ ] **5.2 Pulido y QA**
-  - [ ] Debugging global de todos los módulos
-  - [ ] Optimización de rendimiento y uso de memoria
-  - [ ] Tests unitarios y de integración
+- [x] **5.2 Pulido y QA**
+  - [x] Debugging global de todos los módulos
+  - [x] Optimización de rendimiento y uso de memoria
+  - [x] Tests unitarios y de integración
 
 ---
 
