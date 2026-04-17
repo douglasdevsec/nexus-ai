@@ -56,11 +56,11 @@
 
 > **Objetivo:** Construir la interfaz de escritorio funcional con tema oscuro, navegación entre módulos, panel de configuración de IA y controles de escaneo.
 
-- [ ] **2.1 Sistema de diseño y tema oscuro**
-  - [ ] Definir paleta de colores (fondo oscuro, acentos funcionales, estados de alerta)
-  - [ ] Configurar tipografía (Inter / JetBrains Mono para consola)
-  - [ ] Crear variables CSS globales y tokens de diseño
-  - [ ] Implementar componentes base: Button, Card, Input, Badge, Table
+- [x] **2.1 Sistema de diseño y tema oscuro**
+  - [x] Definir paleta de colores (fondo oscuro, acentos funcionales, estados de alerta)
+  - [x] Configurar tipografía (Inter / JetBrains Mono para consola)
+  - [x] Crear variables CSS globales y tokens de diseño
+  - [x] Implementar componentes base: Button, Card, Input, Badge, Table
 
 - [ ] **2.2 Layout principal y navegación**
   - [ ] Sidebar con navegación entre módulos (Dashboard, Escáneres, Reportes, Configuración)
