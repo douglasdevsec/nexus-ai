@@ -143,18 +143,18 @@
   - [x] Sistema de prompts con templates parametrizables
   - [x] Manejo de streaming de respuestas del LLM
 
-- [ ] **4.2 Agente Analista**
-  - [ ] `backend/agents/analyst.py`
-  - [ ] Recibe JSON crudo de los módulos de escaneo
-  - [ ] Filtra falsos positivos mediante análisis contextual
-  - [ ] Clasifica severidad usando estándar CVSS (Crítica, Alta, Media, Baja, Informativa)
-  - [ ] Output: JSON enriquecido con análisis y scoring
+- [x] **4.2 Agente Analista**
+  - [x] `backend/agents/analyst.py`
+  - [x] Recibe JSON crudo de los módulos de escaneo
+  - [x] Filtra falsos positivos mediante análisis contextual
+  - [x] Clasifica severidad usando estándar CVSS (Crítica, Alta, Media, Baja, Informativa)
+  - [x] Output: JSON enriquecido con análisis y scoring
 
-- [ ] **4.3 Agente Remediador**
-  - [ ] `backend/agents/remediator.py`
-  - [ ] Por cada hallazgo válido, genera instrucciones de mitigación paso a paso
-  - [ ] Priorización de remediaciones por impacto
-  - [ ] Sugerencias específicas para entornos Windows
+- [x] **4.3 Agente Remediador**
+  - [x] `backend/agents/remediator.py`
+  - [x] Por cada hallazgo válido, genera instrucciones de mitigación paso a paso
+  - [x] Priorización de remediaciones por impacto
+  - [x] Sugerencias específicas para entornos Windows
 
 - [ ] **4.4 Generador de Reportes**
   - [ ] `backend/agents/report_generator.py`
